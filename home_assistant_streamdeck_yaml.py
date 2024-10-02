@@ -1292,8 +1292,8 @@ async def setup_ws(
     uri = f"{protocol}://{host}/api/websocket"
     while True:
         try:
-            # limit size to 10 MiB
-            async with websockets.connect(uri, max_size=10485760) as websocket:
+            # limit size to 20 MiB
+            async with websockets.connect(uri, max_size=20971520 ) as websocket:
                 # Send an authentication message to Home Assistant
                 auth_payload = {"type": "auth", "access_token": token}
                 await websocket.send(json.dumps(auth_payload))
